@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+
+body{
+    background-color:#333;
+    line-height:1.6;
+    color:#fff;
+}
+
+.slides{
+    position: relative;
+    overflow: hidden;
+    height:100vh;
+    width:100vw;
+}
+
+.slide{
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity:0;
+    transition:opacity 0.4s ease-in-out;
+}
+
+.slide.current{
+    opacity:1;
+}
+
+.slide .content{
+    position: absolute;
+    bottom:50px;
+    left:-600px;
+    width:600px;
+    opacity:0;
+    background-color:rgba(255,255,255,0.8);
+    color:#333;
+    padding:20px;
+}
+.slide .content h1{
+    margin-bottom:20px;
+}
+
+.slide.current .content{
+    opacity:1;
+    transform:translateX(600px);
+    transition:all 0.7s ease-in-out
+}
+
+.button button{
+    background-color:transparent;
+    color:#fff;
+    padding:13px 15px;
+    border-radius:50%;
+    border:2px solid #fff;
+}
+button#prev{
+    position: absolute;
+    top:50%;
+    left:15px;
+}
+button#next{
+    position: absolute;
+    top:50%;
+    right:15px;
+}
+.slide:first-child{
+    background:url('./img/apple-bracelet-brand-801816.jpg') no-repeat center center/cover;
+}
+.slide:nth-child(2){
+    background: url('./img/apple-brand-bright-674884.jpg') no-repeat center top/cover;
+}
+.slide:nth-child(3){
+    background: url('./img/apple-desk-iphone-59672.jpg') no-repeat center top/cover;
+}
+.slide:nth-child(4){
+    background: url('./img/apple-digital-iphone-6-9053.jpg') no-repeat center top/cover;
+}
+.slide:nth-child(5){
+    background: url('./img/apple-eye-glasses-iphone-97852.jpg') no-repeat center center/cover;
+}
+
+@media(max-width:500px){
+
+    .slide .content{
+        position: absolute;
+        bottom:-300px;
+        left:0;
+        opacity:0;
+    }
+
+    .slide.current .content{
+        opacity: 1;
+        transform: translateY(-300px);
+        transition:all 1s ease-in-out;
+    }
+}
